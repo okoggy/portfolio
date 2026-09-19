@@ -152,8 +152,8 @@ export default function GlassHero() {
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerCancel}
-      className="relative isolate overflow-hidden min-w-[320px] h-[100dvh] w-full touch-none select-none bg-paper"
-      style={{ touchAction: "none" }}
+      className="relative isolate overflow-hidden min-w-[320px] h-[100dvh] w-full select-none bg-paper touch-pan-y"
+      style={{ touchAction: "pan-y" }}
     >
       {/* LAYER 1: Base Portrait */}
       <div
