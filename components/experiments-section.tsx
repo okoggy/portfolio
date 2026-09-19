@@ -56,24 +56,24 @@ export default function ExperimentsSection() {
         </p>
       </div>
 
-      <div className="p-8 md:p-10 rounded-3xl bg-white/70 backdrop-blur-md border border-white/90 shadow-md">
+      <div className="p-4 sm:p-8 md:p-10 rounded-3xl bg-white/70 backdrop-blur-md border border-white/90 shadow-md">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
-            <h3 className="font-sans text-2xl font-semibold text-ink">Algorithm Array Partition & Sorting Visualizer</h3>
+            <h3 className="font-sans text-xl sm:text-2xl font-semibold text-ink">Algorithm Array Partition & Sorting Visualizer</h3>
             <p className="font-mono text-xs text-ink/60 mt-1">Live state mutation & index comparison demo</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             <button
               onClick={runSortStep}
               disabled={isSorting}
-              className="px-5 py-2.5 rounded-full bg-ink text-white font-mono text-xs font-medium uppercase tracking-wider hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-sm"
+              className="px-4 sm:px-5 py-2.5 rounded-full bg-ink text-white font-mono text-[11px] sm:text-xs font-medium uppercase tracking-wider hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-sm"
             >
               {isSorting ? "Sorting..." : "Run Sort Visualization"}
             </button>
             <button
               onClick={resetArray}
               disabled={isSorting}
-              className="px-5 py-2.5 rounded-full bg-white text-ink border border-slate-200 font-mono text-xs font-medium uppercase tracking-wider hover:bg-slate-50 disabled:opacity-50 transition-colors"
+              className="px-4 sm:px-5 py-2.5 rounded-full bg-white text-ink border border-slate-200 font-mono text-[11px] sm:text-xs font-medium uppercase tracking-wider hover:bg-slate-50 disabled:opacity-50 transition-colors"
             >
               Reset Array
             </button>
@@ -81,15 +81,15 @@ export default function ExperimentsSection() {
         </div>
 
         {/* Array Bars Visualization */}
-        <div className="h-64 flex items-end justify-center gap-3 md:gap-4 p-6 bg-slate-900/90 rounded-2xl border border-slate-800 relative overflow-hidden">
-          <div className="absolute top-3 left-4 font-mono text-[11px] text-slate-400 uppercase tracking-widest">
+        <div className="h-64 flex items-end justify-between sm:justify-center gap-1 sm:gap-3 md:gap-4 px-2 sm:px-6 pb-4 pt-12 bg-slate-900/90 rounded-2xl border border-slate-800 relative overflow-x-auto">
+          <div className="absolute top-3 left-3 sm:left-4 font-mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest">
             ARRAY_STATE [ {array.length} ELEMENTS ]
           </div>
           {array.map((val, idx) => {
             const isHighlighted = highlightIdx.includes(idx);
             return (
-              <div key={idx} className="flex-1 flex flex-col items-center gap-2 max-w-[50px] transition-all">
-                <span className={`font-mono text-[10px] ${isHighlighted ? "text-yellow-400 font-bold" : "text-slate-400"}`}>
+              <div key={idx} className="flex-1 flex flex-col items-center gap-1.5 min-w-[22px] max-w-[45px] transition-all">
+                <span className={`font-mono text-[9px] sm:text-[10px] ${isHighlighted ? "text-yellow-400 font-bold" : "text-slate-400"}`}>
                   {val}
                 </span>
                 <div
@@ -98,7 +98,7 @@ export default function ExperimentsSection() {
                   }`}
                   style={{ height: `${val * 2}px` }}
                 />
-                <span className="font-mono text-[9px] text-slate-500">[{idx}]</span>
+                <span className="font-mono text-[8px] sm:text-[9px] text-slate-500">[{idx}]</span>
               </div>
             );
           })}
