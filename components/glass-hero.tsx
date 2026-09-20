@@ -7,6 +7,7 @@ const MOBILE_RADIUS = 150;
 
 export default function GlassHero() {
   const heroRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const rawPosRef = useRef({ x: -999, y: -999 });
   const smoothPosRef = useRef({ x: -999, y: -999 });
   const currentRadiusRef = useRef(0);
@@ -89,6 +90,8 @@ export default function GlassHero() {
 
   const handlePointerDown = (e: React.PointerEvent<HTMLElement>) => {
     if (e.pointerType !== "mouse") {
+      // Don't capture pointer if touch started inside the nav header
+      if (headerRef.current?.contains(e.target as Node)) return;
       isTrackingRef.current = true;
       if (heroRef.current && "setPointerCapture" in heroRef.current) {
         try {
@@ -109,6 +112,7 @@ export default function GlassHero() {
 
   const handlePointerUp = (e: React.PointerEvent<HTMLElement>) => {
     if (e.pointerType !== "mouse") {
+      if (headerRef.current?.contains(e.target as Node)) return;
       targetRadiusRef.current = 0;
       isTrackingRef.current = false;
       if (
@@ -127,6 +131,7 @@ export default function GlassHero() {
 
   const handlePointerCancel = (e: React.PointerEvent<HTMLElement>) => {
     if (e.pointerType !== "mouse") {
+      if (headerRef.current?.contains(e.target as Node)) return;
       targetRadiusRef.current = 0;
       isTrackingRef.current = false;
       if (
@@ -244,7 +249,7 @@ export default function GlassHero() {
       </div>
 
       {/* LAYER 5: Navigation Header */}
-      <header className="absolute top-0 left-0 right-0 z-20 pt-[max(2.5rem,env(safe-area-inset-top,2.5rem))] px-[max(1.25rem,env(safe-area-inset-left,1.25rem))] md:px-[max(5.6vw,2rem)] animate-nav-down">
+      <header ref={headerRef} className="absolute top-0 left-0 right-0 z-20 pt-[max(2.5rem,env(safe-area-inset-top,2.5rem))] px-[max(1.25rem,env(safe-area-inset-left,1.25rem))] md:px-[max(5.6vw,2rem)] animate-nav-down pointer-events-auto">
         <nav
           className="flex items-center justify-between w-full"
           aria-label="Main Navigation"
@@ -300,13 +305,17 @@ export default function GlassHero() {
             </a>
           </div>
 
-          {/* Right White Rounded CTA */}
-          <a
-            href="mailto:raiswayam00@gmail.com"
-            className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 rounded-full bg-white text-ink shadow-sm hover:bg-slate-50 transition-colors font-mono text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink border border-white/90"
+          {/* Right White Rounded CTA — scrolls to contact section in footer */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 rounded-full bg-white text-ink shadow-sm hover:bg-slate-50 transition-colors font-mono text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink border border-white/90 cursor-pointer"
           >
             Let&apos;s talk
-          </a>
+          </button>
         </nav>
       </header>
     </section>
