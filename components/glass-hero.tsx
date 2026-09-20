@@ -302,9 +302,7 @@ export default function GlassHero() {
 
           {/* Right White Rounded CTA */}
           <a
-            href="https://github.com/okoggy"
-            target="_blank"
-            rel="noreferrer"
+            href="mailto:raiswayam00@gmail.com"
             className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 rounded-full bg-white text-ink shadow-sm hover:bg-slate-50 transition-colors font-mono text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink border border-white/90"
           >
             Let&apos;s talk

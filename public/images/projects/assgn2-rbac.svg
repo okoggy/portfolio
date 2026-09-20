@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-rbac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" rx="16" fill="url(#bg-rbac)"/>
+  <path d="M0 0h800v450H0z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Top App Header -->
+  <rect x="40" y="30" width="720" height="44" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+  <circle cx="65" cy="52" r="6" fill="#ef4444"/>
+  <circle cx="85" cy="52" r="6" fill="#f59e0b"/>
+  <circle cx="105" cy="52" r="6" fill="#10b981"/>
+  <text x="130" y="56" fill="#f43f5e" font-family="monospace" font-size="12" font-weight="600">COURSEWORK // ASSGN-2 JWT &amp; RBAC Architecture</text>
+
+  <!-- Flow Schematic -->
+  <!-- Client Box -->
+  <rect x="50" y="160" width="160" height="120" rx="12" fill="rgba(255,255,255,0.06)" stroke="#f43f5e" stroke-width="1.5"/>
+  <text x="130" y="200" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="600" text-anchor="middle">HTTP Client</text>
+  <text x="130" y="225" fill="#a1a1aa" font-family="monospace" font-size="11" text-anchor="middle">Bearer eyJhbGci...</text>
+  <rect x="75" y="240" width="110" height="22" rx="4" fill="rgba(244,63,94,0.2)"/>
+  <text x="130" y="255" fill="#fda4af" font-family="monospace" font-size="10" text-anchor="middle">POST /api/admin</text>
+
+  <!-- Arrow 1 -->
+  <path d="M210 220 H 280" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4 4"/>
+  <polygon points="280,215 290,220 280,225" fill="#f43f5e"/>
+
+  <!-- Middleware Box -->
+  <rect x="290" y="140" width="220" height="160" rx="12" fill="rgba(244,63,94,0.1)" stroke="#f43f5e" stroke-width="2"/>
+  <text x="400" y="175" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700" text-anchor="middle">JWT Auth Middleware</text>
+  
+  <rect x="310" y="195" width="180" height="30" rx="6" fill="#18181b" stroke="#3f3f46"/>
+  <text x="400" y="215" fill="#34d399" font-family="monospace" font-size="11" text-anchor="middle">✓ Verify Signature</text>
+
+  <rect x="310" y="235" width="180" height="30" rx="6" fill="#18181b" stroke="#3f3f46"/>
+  <text x="400" y="255" fill="#fbbf24" font-family="monospace" font-size="11" text-anchor="middle">✓ Role Check [ADMIN]</text>
+
+  <!-- Arrow 2 -->
+  <path d="M510 220 H 580" stroke="#10b981" stroke-width="2"/>
+  <polygon points="580,215 590,220 580,225" fill="#10b981"/>
+
+  <!-- Protected Route Box -->
+  <rect x="590" y="160" width="160" height="120" rx="12" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="670" y="200" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="600" text-anchor="middle">Protected Controller</text>
+  <text x="670" y="225" fill="#34d399" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">200 OK</text>
+  <text x="670" y="245" fill="#a1a1aa" font-family="sans-serif" font-size="11" text-anchor="middle">Admin Access Granted</text>
+
+  <!-- Bottom Details -->
+  <rect x="40" y="340" width="720" height="60" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="60" y="375" fill="#e4e4e7" font-family="monospace" font-size="11">Tech: Node.js • Express • Bcrypt Hashing • MongoDB Schema Models • RBAC Route Guards</text>
+</svg>

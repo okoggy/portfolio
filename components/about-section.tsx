@@ -67,7 +67,7 @@ export default function AboutSection() {
           </div>
 
           <h2 className="font-sans text-3xl md:text-5xl font-normal tracking-tight leading-tight text-ink">
-            Building software with mathematical precision and clean design.
+            Building software with clean, functional design &amp; strong fundamentals.
           </h2>
 
           <p className="font-sans text-base text-ink/80 leading-relaxed font-normal">
