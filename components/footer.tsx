@@ -12,6 +12,13 @@ export default function Footer() {
     setTimeout(() => setCopied(false), 2500);
   };
 
+  const handleDirectGmail = () => {
+    const defaultUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+      email
+    )}&su=Hey%20Swayam%20%E2%80%94%20Let%27s%20connect!`;
+    window.open(defaultUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <footer id="contact" className="relative border-t border-[var(--grid-line)] bg-white/40 backdrop-blur-md pt-20 pb-12 px-5 md:px-12">
       <div className="max-w-7xl mx-auto space-y-16">
@@ -28,15 +35,17 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
-            <a
-              href={`mailto:${email}`}
-              className="inline-flex items-center justify-center min-h-[52px] px-8 py-3 rounded-full bg-ink text-white font-mono text-xs font-semibold uppercase tracking-wider hover:bg-slate-800 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
-            >
-              Send an Email
-            </a>
             <button
+              type="button"
+              onClick={handleDirectGmail}
+              className="inline-flex items-center justify-center min-h-[52px] px-8 py-3 rounded-full bg-ink text-white font-mono text-xs font-semibold uppercase tracking-wider hover:bg-slate-800 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink cursor-pointer"
+            >
+              Compose Gmail
+            </button>
+            <button
+              type="button"
               onClick={handleCopyEmail}
-              className="inline-flex items-center justify-center min-h-[52px] px-8 py-3 rounded-full bg-white text-ink border border-slate-300 font-mono text-xs font-medium uppercase tracking-wider hover:bg-slate-50 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+              className="inline-flex items-center justify-center min-h-[52px] px-8 py-3 rounded-full bg-white text-ink border border-slate-300 font-mono text-xs font-medium uppercase tracking-wider hover:bg-slate-50 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink cursor-pointer"
             >
               {copied ? "✓ Email Copied!" : `Copy Email (${email})`}
             </button>

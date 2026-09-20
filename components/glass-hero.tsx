@@ -305,17 +305,18 @@ export default function GlassHero() {
             </a>
           </div>
 
-          {/* Right White Rounded CTA — scrolls to contact section in footer */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
+          {/* Right White Rounded CTA — opens Gmail compose directly */}
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+              "raiswayam00@gmail.com"
+            )}&su=${encodeURIComponent("Hey Swayam — Let's connect!")}`}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => e.stopPropagation()}
             className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 rounded-full bg-white text-ink shadow-sm hover:bg-slate-50 transition-colors font-mono text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink border border-white/90 cursor-pointer"
           >
             Let&apos;s talk
-          </button>
+          </a>
         </nav>
       </header>
     </section>
